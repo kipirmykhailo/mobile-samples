@@ -23,7 +23,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '**/*.sln'
+    restoreSolution: 'AnalogClock/*.sln'
 
 - task: XamarinAndroid@1
   inputs:
