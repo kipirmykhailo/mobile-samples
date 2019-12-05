@@ -9,7 +9,7 @@ trigger:
      - master
  paths:
    include:
-     - AnalogClock/AnalogClock.Android/*
+     - mobile-samples/AnalogClock/AnalogClock/*
 
 pool:
   vmImage: 'macos-latest'
@@ -23,11 +23,11 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: 'AnalogClock/*.sln'
+    restoreSolution: '**/*.sln'
 
 - task: XamarinAndroid@1
   inputs:
-    projectFile: 'AnalogClock/AnalogClock.Android/*droid*.csproj'
+    projectFile: 'AnalogClock/AnalogClock.Android/AnalogClock.Android.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
