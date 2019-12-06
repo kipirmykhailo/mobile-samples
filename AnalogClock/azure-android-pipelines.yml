@@ -45,3 +45,15 @@ steps:
     PathtoPublish: '$(outputDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+
+- task: DutchWorkzToolsSendEmail@1
+  inputs:
+    recipients: 'mykhailo.kipir@studenti.itsincom.it'
+    fromaddress: 'mykhailo.kipir@studenti.itsincom.it'
+    subject: 'Artifact Release'
+    bodytext: 'https://dev.azure.com/ITS2019-2020/_apis/resources/Containers/$($build.buildid)/drop?itemPath=drop%2FAnalogClock.Android.apk'
+    smtphost: 'smtp.server.com'
+    smtpport: '587'
+    smtpuser: 'mykhailo.kipir@studenti.itsincom.it'
+    smtppass: '15032ba05EEA2'
