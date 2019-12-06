@@ -32,8 +32,16 @@ steps:
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
  
-- task: CopyFiles@2
+- task: AndroidSigning@3
   inputs:
-    contents: '**/*.apk'
-    targetFolder: '$(build.artifactStagingDirectory)'
+    apkFiles: '$(outputDirectory)/*.apk'
+    apksignerKeystoreFile: 'debug.keystore'
+    apksignerKeystorePassword: 'android'
+    apksignerKeystoreAlias: 'androiddebugkeystore'
+    apksignerKeyPassword: 'android'
+
 - task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(outputDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
