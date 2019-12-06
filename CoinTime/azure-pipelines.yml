@@ -27,7 +27,7 @@ steps:
 
 - task: XamarinAndroid@1
   inputs:
-    projectFile: 'mobile-samples/CoinTime/CoinTime/CoinTime.Android.csproj'
+    projectFile: 'CoinTime/CoinTime/CoinTime.Android.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 
